@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react'; // <-- add useEffect import
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Navbar from './components/layout/Navbar';
@@ -12,6 +12,13 @@ import { StoryProvider } from './context/StoryContext';
 import { AuthProvider } from './context/AuthContext';
 
 function App() {
+  useEffect(() => {
+    fetch('https://starstorybuilder.onrender.com')
+      .then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.error('Error:', err));
+  }, []);
+
   return (
     <AuthProvider>
       <StoryProvider>
