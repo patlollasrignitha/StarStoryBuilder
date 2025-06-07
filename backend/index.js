@@ -1,6 +1,7 @@
 const express = require('express');
 const { Pool } = require('pg');
 const cors = require('cors');
+const db = require('./database'); // ✅ OK if using CommonJS
 require('dotenv').config();
 
 const app = express();
